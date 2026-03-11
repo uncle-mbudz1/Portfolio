@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanaka Dhombo — Venture Builder · Operator · Recovering Lawyer</title>
+  <meta name="description" content="Tanaka Dhombo is a venture builder, operator, and recovering lawyer. HEC Paris MBA candidate, former M&A attorney at Bowman Gilfillan, building across Africa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep-bg: #0E0B08;
+      --cream: #E8DECE;
+      --card: #1A1410;
+      --terracotta: #CC5C33;
+      --ochre: #C49745;
+      --sand: #D6C9B3;
+      --dusty-rose: #AB6B72;
+      --sage: #628C6B;
+      --neon-teal: #22C3B0;
+      --amber-glow: #E8A31E;
+      --muted-bg: #2B2623;
+      --muted-text: #A08E78;
+      --border: #362F28;
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      background: var(--deep-bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    h1, h2, h3, h4, h5, h6 { font-family: 'Cinzel', serif; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--deep-bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    .glow-teal { box-shadow: 0 0 15px rgba(34,195,176,0.3), 0 0 30px rgba(34,195,176,0.1); }
+
+    .fade-target {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-target.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-header .sh-icon { font-size: 1.875rem; display: block; margin-bottom: 12px; }
+    .section-header .sh-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-header .sh-sub {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .section-header .sh-sub::before,
+    .section-header .sh-sub::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: rgba(204,92,51,0.5);
+    }
+    .section-header .sh-sub span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       START SCREEN
+       ============================================================ */
+    #start-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      animation: ambientBg 12s ease-in-out infinite;
+    }
+    #start-screen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 1;
+    }
+    @keyframes ambientBg {
+      0%, 100% { background-color: hsl(16, 30%, 8%); }
+      33% { background-color: hsl(160, 20%, 6%); }
+      66% { background-color: hsl(350, 15%, 7%); }
+    }
+    .start-content { position: relative; z-index: 2; text-align: center; }
+    .start-deco {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .start-deco .deco-sq {
+      position: absolute;
+      top: 50%; left: 50%;
+      border: 1px solid;
+    }
+    .start-deco .deco-sq:nth-child(1) { width: 256px; height: 256px; border-color: rgba(54,47,40,0.3); transform: translate(-50%,-50%) rotate(45deg); }
+    .start-deco .deco-sq:nth-child(2) { width: 192px; height: 192px; border-color: rgba(204,92,51,0.2); transform: translate(-50%,-50%) rotate(12deg); }
+    .start-deco .deco-sq:nth-child(3) { width: 320px; height: 320px; border-color: rgba(34,195,176,0.1); transform: translate(-50%,-50%) rotate(-12deg); }
+    .start-world { font-family: 'DM Sans', sans-serif; font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted-text); margin-bottom: 8px; opacity: 0; animation: fadeUp 1s ease-out 1.5s forwards; }
+    .start-name { font-family: 'Cinzel', serif; font-size: clamp(1.875rem, 5vw, 3rem); letter-spacing: 0.15em; color: var(--cream); margin-bottom: 32px; opacity: 0; animation: fadeUp 1s ease-out 0.8s forwards; }
+    .start-btn { display: inline-block; font-family: 'Caveat', cursive; font-size: clamp(2.25rem, 5vw, 3rem); color: var(--neon-teal); background: none; border: none; cursor: pointer; position: relative; padding-bottom: 4px; transition: color 500ms, transform 300ms; opacity: 0; animation: fadeUp 1s ease-out 1.2s forwards; }
+    .start-btn::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(34,195,176,0.5); transition: background 500ms; }
+    .start-btn:hover { color: var(--amber-glow); transform: scale(1.05); }
+    .start-btn:hover::after { background: rgba(232,163,30,0.5); }
+    .start-btn:active { transform: scale(0.98); }
+    .start-hint { font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-text); margin-top: 24px; opacity: 0; animation: pulseFade 3s ease-in-out 2s infinite; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseFade { 0%, 100% { opacity: 0; } 50% { opacity: 0.5; } }
+    #start-screen.exiting { opacity: 0; transition: opacity 1.2s ease-in-out; pointer-events: none; }
+
+    /* ============================================================
+       PAGE SYSTEM
+       ============================================================ */
+    #main-content {
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out 0.3s;
+    }
+    #main-content.active { opacity: 1; }
+
+    .page {
+      display: none;
+      min-height: 100vh;
+    }
+    .page.active {
+      display: block;
+      animation: pageEnter 0.6s ease-out;
+    }
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       TRANSITION OVERLAY
+       ============================================================ */
+    #transition-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 45;
+      background: var(--deep-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      pointer-events: none;
+      clip-path: circle(0% at 50% 50%);
+    }
+    #transition-overlay.expanding {
+      animation: circleExpand 0.5s ease-in forwards;
+    }
+    #transition-overlay.contracting {
+      animation: circleContract 0.5s ease-out forwards;
+    }
+    @keyframes circleExpand {
+      from { clip-path: circle(0% at 50% 50%); }
+      to { clip-path: circle(75% at 50% 50%); }
+    }
+    @keyframes circleContract {
+      from { clip-path: circle(75% at 50% 50%); }
+      to { clip-path: circle(0% at 50% 50%); }
+    }
+    .trans-icon { font-size: 3rem; }
+    .trans-label {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .trans-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+    }
+    .trans-bar-track {
+      width: 200px;
+      height: 3px;
+      background: var(--muted-bg);
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .trans-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: repeating-linear-gradient(90deg,
+        #CC5C33 0px, #CC5C33 8px,
+        #C49745 8px, #C49745 16px,
+        #22C3B0 16px, #22C3B0 24px,
+        #AB6B72 24px, #AB6B72 32px
+      );
+    }
+    #transition-overlay.expanding .trans-bar-fill {
+      animation: barFill 0.7s ease-out forwards;
+    }
+    @keyframes barFill {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    .trans-deco {
+      position: absolute;
+      pointer-events: none;
+    }
+    .trans-deco .td-sq {
+      position: absolute;
+      top: 50%; left: 50%;
+      border: 1px solid;
+    }
+    .trans-deco .td-sq:nth-child(1) { width: 180px; height: 180px; border-color: rgba(54,47,40,0.2); transform: translate(-50%,-50%) rotate(45deg); }
+    .trans-deco .td-sq:nth-child(2) { width: 260px; height: 260px; border-color: rgba(34,195,176,0.08); transform: translate(-50%,-50%) rotate(-15deg); }
+
+    /* ============================================================
+       RPG HUD — BOTTOM BAR
+       ============================================================ */
+    #game-hud {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 40;
+      background: rgba(26,20,16,0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-top: 2px solid;
+      border-image: repeating-linear-gradient(90deg,
+        #CC5C33 0px, #CC5C33 8px,
+        #C49745 8px, #C49745 16px,
+        #22C3B0 16px, #22C3B0 24px,
+        #AB6B72 24px, #AB6B72 32px
+      ) 2;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    }
+    #game-hud.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .hud-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .hud-map-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .hud-map-btn:hover {
+      border-color: rgba(34,195,176,0.5);
+      box-shadow: 0 0 10px rgba(34,195,176,0.2);
+    }
+    .hud-map-btn .hm-icon { font-size: 16px; }
+    .hud-map-btn .hm-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--muted-text);
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+    .hud-map-btn:hover .hm-label { color: var(--cream); }
+
+    .hud-slots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .hud-slot {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      background: var(--deep-bg);
+      border: 1px solid var(--border);
+      clip-path: polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .hud-slot:hover {
+      border-color: rgba(34,195,176,0.4);
+      background: var(--muted-bg);
+    }
+    .hud-slot.active {
+      border-color: var(--neon-teal);
+      box-shadow: 0 0 12px rgba(34,195,176,0.4), 0 0 24px rgba(34,195,176,0.15);
+      background: rgba(34,195,176,0.08);
+      transform: scale(1.1);
+    }
+    .hud-slot.visited::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 50%;
+      transform: translateX(-50%);
+      width: 4px; height: 4px;
+      background: var(--neon-teal);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .hud-location {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+    .hud-location .hl-icon { font-size: 14px; flex-shrink: 0; }
+    .hud-location .hl-name {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--cream);
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 520px) {
+      .hud-location { display: none; }
+      .hud-slot { width: 36px; height: 36px; font-size: 14px; }
+    }
+
+    /* ============================================================
+       WORLD MAP
+       ============================================================ */
+    #page-map.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+    }
+    .map-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 3vw, 1.875rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .map-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .map-container {
+      position: relative;
+      width: 100%;
+      max-width: 896px;
+      aspect-ratio: 4/3;
+      background-size: 60px 60px;
+      background-image:
+        linear-gradient(rgba(232,222,206,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,222,206,0.05) 1px, transparent 1px);
+    }
+    @media (min-width: 768px) { .map-container { aspect-ratio: 16/9; } }
+    .map-svg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .zone-btn {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 6px; cursor: pointer; background: none; border: none;
+      text-decoration: none;
+      opacity: 0;
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .zone-btn.entered { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    .zone-icon {
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: clamp(1.5rem, 3vw, 1.875rem);
+      background: var(--card);
+      border: 1px solid var(--border);
+      clip-path: polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    @media (min-width: 768px) { .zone-icon { width: 64px; height: 64px; } }
+    .zone-icon::after {
+      content: ''; position: absolute; inset: -8px; border-radius: 50%;
+      background: rgba(34,195,176,0.05); opacity: 0; transition: all 0.3s ease;
+    }
+    .zone-btn:hover .zone-icon { border-color: rgba(34,195,176,0.5); }
+    .zone-btn:hover .zone-icon::after { opacity: 1; inset: -15px; }
+    .zone-btn.discovered .zone-icon { border-color: rgba(34,195,176,0.35); }
+    .zone-label {
+      font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.15em;
+      color: var(--muted-text); transition: color 0.3s ease; white-space: nowrap;
+    }
+    @media (min-width: 768px) { .zone-label { font-size: 12px; } }
+    .zone-desc {
+      font-family: 'DM Sans', sans-serif; font-size: 9px;
+      color: rgba(160,142,120,0.5); white-space: nowrap;
+    }
+    @media (min-width: 768px) { .zone-desc { font-size: 10px; } }
+    .zone-btn:hover .zone-label { color: var(--neon-teal); }
+    .zone-btn.discovered .zone-label { color: rgba(34,195,176,0.6); }
+
+    /* ============================================================
+       THE TOWER (About)
+       ============================================================ */
+    #page-tower { padding: 96px 16px 120px; }
+    .tower-inner { max-width: 1152px; margin: 0 auto; }
+    .tower-layout { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+    @media (min-width: 1024px) { .tower-layout { flex-direction: row; align-items: flex-start; gap: 64px; } }
+
+    .rpg-card {
+      width: 100%; max-width: 384px; flex-shrink: 0;
+      background: var(--card); border: 1px solid var(--border);
+      clip-path: polygon(0% 3%, 3% 0%, 97% 0%, 100% 3%, 100% 97%, 97% 100%, 3% 100%, 0% 97%);
+      position: relative; overflow: hidden;
+    }
+    .card-corner { position: absolute; width: 24px; height: 24px; z-index: 5; }
+    .card-corner--tl { top: 8px; left: 8px; border-top: 2px solid var(--terracotta); border-left: 2px solid var(--terracotta); }
+    .card-corner--tr { top: 8px; right: 8px; border-top: 2px solid var(--ochre); border-right: 2px solid var(--ochre); }
+    .card-corner--bl { bottom: 8px; left: 8px; border-bottom: 2px solid var(--ochre); border-left: 2px solid var(--ochre); }
+    .card-corner--br { bottom: 8px; right: 8px; border-bottom: 2px solid var(--terracotta); border-right: 2px solid var(--terracotta); }
+
+    .card-photo { position: relative; aspect-ratio: 3/4; overflow: hidden; }
+    .card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: sepia(15%) saturate(1.1) brightness(0.9); }
+    .card-photo::before { content: ''; position: absolute; inset: 0; background: rgba(204,92,51,0.1); mix-blend-mode: overlay; z-index: 2; pointer-events: none; }
+    .card-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, transparent 50%, #1A1410); z-index: 3; pointer-events: none; }
+
+    .card-nameplate { text-align: center; padding: 20px 12px 8px; border-top: 1px solid rgba(54,47,40,0.5); }
+    .card-nameplate h3 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.2em; color: var(--cream); }
+    .card-nameplate .card-class { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.25em; color: var(--neon-teal); margin-top: 2px; text-transform: uppercase; }
+
+    .card-stats { padding: 8px 20px 16px; }
+    .cs-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-size: 11px; }
+    .cs-row .cs-icon { width: 16px; text-align: center; flex-shrink: 0; font-size: 12px; }
+    .cs-row .cs-label { width: 112px; flex-shrink: 0; color: var(--muted-text); font-family: 'DM Sans', sans-serif; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cs-row .cs-bar { flex: 1; height: 8px; background: var(--muted-bg); border-radius: 2px; overflow: hidden; }
+    .cs-row .cs-fill { height: 100%; width: 0%; border-radius: 2px; transition: width 0.8s ease-out; }
+    .cs-row .cs-val { width: 24px; text-align: right; font-family: monospace; font-size: 10px; color: var(--muted-text); flex-shrink: 0; }
+
+    .card-badges { border-top: 1px solid rgba(54,47,40,0.5); padding: 12px 20px 20px; }
+    .card-badges-title { font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted-text); margin-bottom: 8px; }
+    .card-badges-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .cb-item { clip-path: polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%); background: rgba(43,38,35,0.5); border: 1px solid rgba(54,47,40,0.3); padding: 8px; text-align: center; }
+    .cb-item .cb-icon { font-size: 18px; display: block; margin-bottom: 2px; }
+    .cb-item .cb-label { font-family: 'DM Sans', sans-serif; font-size: 8px; color: var(--muted-text); line-height: 1.2; }
+
+    .tower-bio { flex: 1; min-width: 0; }
+    .tower-bio .bio-name { font-family: 'Cinzel', serif; font-size: clamp(2.25rem, 5vw, 3.75rem); letter-spacing: 0.1em; margin-bottom: 16px; }
+    .tower-bio .bio-subtitle { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.15em; color: var(--neon-teal); margin-bottom: 24px; }
+    @media (min-width: 768px) { .tower-bio .bio-subtitle { font-size: 16px; } }
+    .bio-text { border-left: 2px solid; border-image: repeating-linear-gradient(180deg, #CC5C33 0px, #CC5C33 8px, #C49745 8px, #C49745 16px, #22C3B0 16px, #22C3B0 24px, #AB6B72 24px, #AB6B72 32px) 2; padding-left: 24px; }
+    .bio-text p { font-size: 16px; line-height: 1.6; color: rgba(232,222,206,0.9); margin-bottom: 16px; }
+    .bio-text p:last-child { margin-bottom: 0; }
+    .bio-text p.italic { font-style: italic; opacity: 0.8; }
+    @media (min-width: 768px) { .bio-text p { font-size: 18px; } }
+    .quick-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; padding-top: 24px; }
+    @media (min-width: 768px) { .quick-stats { grid-template-columns: repeat(4, 1fr); } }
+    .qs-item { border: 1px solid var(--border); padding: 16px; text-align: center; background: rgba(26,20,16,0.5); }
+    .qs-item .qs-val { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--neon-teal); }
+    .qs-item .qs-label { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted-text); margin-top: 4px; }
+
+    /* ============================================================
+       THE ARCHIVE (Experience)
+       ============================================================ */
+    #page-archive { padding: 96px 16px 120px; }
+    .archive-inner { max-width: 896px; margin: 0 auto; }
+    .role-cards { display: flex; flex-direction: column; gap: 24px; }
+    .role-card { border: 1px solid var(--border); background: var(--card); padding: 24px; position: relative; overflow: hidden; }
+    @media (min-width: 768px) { .role-card { padding: 32px; } }
+    .role-card .rc-corner { position: absolute; top: 0; right: 0; width: 64px; height: 64px; clip-path: polygon(100% 0, 100% 100%, 0 0); border-top: 1px solid rgba(204,92,51,0.3); border-right: 1px solid rgba(204,92,51,0.3); }
+    .role-card .rc-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .rc-badge { font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 12px; font-weight: 600; }
+    .rc-badge.legal { background: var(--terracotta); color: var(--deep-bg); }
+    .rc-badge.leadership { background: var(--neon-teal); color: var(--deep-bg); }
+    .rc-period { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.15em; color: var(--muted-text); }
+    .role-card h3 { font-family: 'Cinzel', serif; font-size: 18px; letter-spacing: 0.05em; margin-bottom: 4px; }
+    @media (min-width: 768px) { .role-card h3 { font-size: 20px; } }
+    .rc-org { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ochre); margin-bottom: 16px; }
+    .rc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .rc-list li { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(232,222,206,0.8); padding-left: 20px; position: relative; }
+    .rc-list li::before { content: '▹'; position: absolute; left: 0; color: var(--neon-teal); font-size: 12px; }
+
+    /* ============================================================
+       THE ACADEMY (Education)
+       ============================================================ */
+    #page-academy { padding: 96px 16px 120px; }
+    .academy-inner { max-width: 896px; margin: 0 auto; }
+    .timeline { display: flex; flex-direction: column; gap: 32px; }
+    .tl-entry { display: flex; gap: 24px; }
+    .tl-line { display: none; flex-direction: column; align-items: center; width: 24px; flex-shrink: 0; padding-top: 28px; }
+    @media (min-width: 768px) { .tl-line { display: flex; } }
+    .tl-diamond { width: 16px; height: 16px; border: 2px solid var(--neon-teal); background: var(--deep-bg); transform: rotate(45deg); flex-shrink: 0; }
+    .tl-connector { flex: 1; width: 1px; background: var(--border); margin-top: 8px; }
+    .tl-card { flex: 1; border: 1px solid var(--border); background: var(--card); padding: 24px; }
+    @media (min-width: 768px) { .tl-card { padding: 32px; } }
+    .tl-unlocked { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--neon-teal); margin-bottom: 8px; }
+    .tl-card h3 { font-family: 'Cinzel', serif; font-size: 20px; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .tl-degree { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ochre); margin-bottom: 2px; }
+    .tl-period { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted-text); margin-bottom: 16px; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tl-tag { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.1em; padding: 4px 12px; border: 1px solid rgba(34,195,176,0.3); color: var(--neon-teal); background: rgba(34,195,176,0.05); }
+
+    /* ============================================================
+       THE WORKSHOP (Projects)
+       ============================================================ */
+    #page-workshop { padding: 96px 16px 120px; }
+    .workshop-inner { max-width: 896px; margin: 0 auto; }
+    .project-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media (min-width: 768px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+    .project-card { border: 1px solid var(--border); background: var(--card); padding: 24px; cursor: pointer; position: relative; overflow: hidden; transition: border-color 0.3s ease; }
+    .project-card::before { content: ''; position: absolute; inset: 0; opacity: 0.02; transition: opacity 0.3s ease; pointer-events: none; }
+    .project-card:hover::before { opacity: 0.05; }
+    .project-card[data-accent="neon-teal"]::before { background-size: 20px 20px; background-image: linear-gradient(rgba(34,195,176,1) 1px, transparent 1px), linear-gradient(90deg, rgba(34,195,176,1) 1px, transparent 1px); }
+    .project-card[data-accent="neon-teal"]:hover { border-color: rgba(34,195,176,0.5); }
+    .project-card[data-accent="ochre"]::before { background-size: 20px 20px; background-image: linear-gradient(rgba(196,151,69,1) 1px, transparent 1px), linear-gradient(90deg, rgba(196,151,69,1) 1px, transparent 1px); }
+    .project-card[data-accent="ochre"]:hover { border-color: rgba(196,151,69,0.5); }
+    .project-card[data-accent="dusty-rose"]::before { background-size: 20px 20px; background-image: linear-gradient(rgba(171,107,114,1) 1px, transparent 1px), linear-gradient(90deg, rgba(171,107,114,1) 1px, transparent 1px); }
+    .project-card[data-accent="dusty-rose"]:hover { border-color: rgba(171,107,114,0.5); }
+    .project-card[data-accent="terracotta"]::before { background-size: 20px 20px; background-image: linear-gradient(rgba(204,92,51,1) 1px, transparent 1px), linear-gradient(90deg, rgba(204,92,51,1) 1px, transparent 1px); }
+    .project-card[data-accent="terracotta"]:hover { border-color: rgba(204,92,51,0.5); }
+    .pc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .pc-status { font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 12px; font-weight: 600; }
+    .pc-status.live { background: var(--neon-teal); color: var(--deep-bg); }
+    .pc-status.dev { background: var(--ochre); color: var(--deep-bg); }
+    .pc-status.concept { background: var(--muted-bg); color: var(--muted-text); }
+    .pc-visit { font-family: 'DM Sans', sans-serif; font-size: 10px; color: var(--muted-text); text-decoration: none; transition: color 0.3s ease; }
+    .pc-visit:hover { color: var(--neon-teal); }
+    .project-card h3 { font-family: 'Cinzel', serif; font-size: 20px; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .project-card .pc-desc { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--muted-text); }
+
+    /* ============================================================
+       THE SIGNAL (Contact)
+       ============================================================ */
+    #page-signal.active { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 96px 16px 120px; }
+    .signal-inner { max-width: 672px; width: 100%; text-align: center; }
+    .signal-tower { position: relative; width: 160px; height: 160px; margin: 0 auto 48px; }
+    .pulse-ring { position: absolute; top: 50%; left: 50%; width: 80px; height: 80px; transform: translate(-50%, -50%); border-radius: 50%; animation: pulseRing 2s ease-out infinite; }
+    .pulse-ring:nth-child(1) { border: 1px solid rgba(34,195,176,0.3); animation-delay: 0s; }
+    .pulse-ring:nth-child(2) { border: 1px solid rgba(34,195,176,0.2); animation-delay: 0.7s; }
+    .pulse-ring:nth-child(3) { border: 1px solid rgba(34,195,176,0.1); animation-delay: 1.4s; }
+    @keyframes pulseRing { 0% { transform: translate(-50%,-50%) scale(1); opacity: 0.6; } 100% { transform: translate(-50%,-50%) scale(2.5); opacity: 0; } }
+    .signal-hex { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); border: 1px solid rgba(34,195,176,0.5); background: var(--card); display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 0 15px rgba(34,195,176,0.3), 0 0 30px rgba(34,195,176,0.1); }
+    .signal-cta { font-family: 'Cinzel', serif; font-size: 20px; letter-spacing: 0.05em; margin-bottom: 40px; }
+    @media (min-width: 768px) { .signal-cta { font-size: 24px; } }
+    .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .contact-link { display: flex; align-items: center; gap: 8px; border: 1px solid var(--border); background: var(--card); padding: 12px 24px; text-decoration: none; transition: all 0.3s ease; }
+    .contact-link:hover { border-color: rgba(34,195,176,0.5); box-shadow: 0 0 15px rgba(34,195,176,0.3), 0 0 30px rgba(34,195,176,0.1); }
+    .contact-link:hover .cl-label { color: var(--cream); }
+    .contact-link .cl-icon { font-size: 16px; }
+    .contact-link .cl-label { font-family: 'DM Sans', sans-serif; font-size: 14px; letter-spacing: 0.1em; color: var(--muted-text); transition: color 0.3s ease; }
+    .site-footer { font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: rgba(232,222,206,0.3); margin-top: 80px; text-align: center; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== START SCREEN ==================== -->
+  <div id="start-screen" onclick="enterSite()">
+    <div class="start-deco">
+      <div class="deco-sq"></div>
+      <div class="deco-sq"></div>
+      <div class="deco-sq"></div>
+    </div>
+    <div class="start-content">
+      <div class="start-world">The world of</div>
+      <h1 class="start-name">TANAKA DHOMBO</h1>
+      <button class="start-btn" onclick="event.stopPropagation(); enterSite();">Start</button>
+      <div class="start-hint">Click anywhere to enter</div>
+    </div>
+  </div>
+
+  <!-- ==================== TRANSITION OVERLAY ==================== -->
+  <div id="transition-overlay">
+    <div class="trans-deco">
+      <div class="td-sq"></div>
+      <div class="td-sq"></div>
+    </div>
+    <span class="trans-icon" id="trans-icon"></span>
+    <span class="trans-label" id="trans-label"></span>
+    <span class="trans-sub">Entering Zone</span>
+    <div class="trans-bar-track"><div class="trans-bar-fill"></div></div>
+  </div>
+
+  <!-- ==================== RPG HUD ==================== -->
+  <nav id="game-hud">
+    <div class="hud-inner">
+      <button class="hud-map-btn" onclick="navigateTo('map')">
+        <span class="hm-icon">🧭</span>
+        <span class="hm-label">Map</span>
+      </button>
+      <div class="hud-slots">
+        <button class="hud-slot" data-target="tower" onclick="navigateTo('tower')" title="The Tower">🏙️</button>
+        <button class="hud-slot" data-target="archive" onclick="navigateTo('archive')" title="The Archive">📜</button>
+        <button class="hud-slot" data-target="academy" onclick="navigateTo('academy')" title="The Academy">🎓</button>
+        <button class="hud-slot" data-target="workshop" onclick="navigateTo('workshop')" title="The Workshop">🛠️</button>
+        <button class="hud-slot" data-target="signal" onclick="navigateTo('signal')" title="The Signal">📡</button>
+      </div>
+      <div class="hud-location">
+        <span class="hl-icon" id="hud-loc-icon">🗺️</span>
+        <span class="hl-name" id="hud-loc-name">WORLD MAP</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <div id="main-content">
+
+    <!-- PAGE: WORLD MAP -->
+    <div class="page active" id="page-map">
+      <h2 class="map-title fade-target">World Map</h2>
+      <p class="map-subtitle fade-target">Choose your destination</p>
+      <div class="map-container fade-target">
+        <svg class="map-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="50" y1="18" x2="20" y2="42" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+          <line x1="50" y1="18" x2="78" y2="38" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+          <line x1="20" y1="42" x2="35" y2="65" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+          <line x1="78" y1="38" x2="68" y2="72" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+          <line x1="35" y1="65" x2="68" y2="72" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+        </svg>
+        <button class="zone-btn" style="left:50%;top:18%;" data-delay="0" data-zone="tower" onclick="navigateTo('tower')">
+          <div class="zone-icon">🏙️</div>
+          <span class="zone-label">THE TOWER</span>
+          <span class="zone-desc">Who is Tanaka</span>
+        </button>
+        <button class="zone-btn" style="left:20%;top:42%;" data-delay="1" data-zone="archive" onclick="navigateTo('archive')">
+          <div class="zone-icon">📜</div>
+          <span class="zone-label">THE ARCHIVE</span>
+          <span class="zone-desc">Career History</span>
+        </button>
+        <button class="zone-btn" style="left:78%;top:38%;" data-delay="2" data-zone="academy" onclick="navigateTo('academy')">
+          <div class="zone-icon">🎓</div>
+          <span class="zone-label">THE ACADEMY</span>
+          <span class="zone-desc">Education</span>
+        </button>
+        <button class="zone-btn" style="left:35%;top:65%;" data-delay="3" data-zone="workshop" onclick="navigateTo('workshop')">
+          <div class="zone-icon">🛠️</div>
+          <span class="zone-label">THE WORKSHOP</span>
+          <span class="zone-desc">Projects &amp; Ventures</span>
+        </button>
+        <button class="zone-btn" style="left:68%;top:72%;" data-delay="4" data-zone="signal" onclick="navigateTo('signal')">
+          <div class="zone-icon">📡</div>
+          <span class="zone-label">THE SIGNAL</span>
+          <span class="zone-desc">Contact</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PAGE: THE TOWER -->
+    <div class="page" id="page-tower">
+      <div class="tower-inner">
+        <div class="section-header fade-target">
+          <span class="sh-icon">🏙️</span>
+          <h2 class="sh-title">The Tower</h2>
+          <div class="sh-sub"><span>Who is Tanaka</span></div>
+        </div>
+        <div class="tower-layout">
+          <div class="rpg-card glow-teal fade-target">
+            <div class="card-corner card-corner--tl"></div>
+            <div class="card-corner card-corner--tr"></div>
+            <div class="card-corner card-corner--bl"></div>
+            <div class="card-corner card-corner--br"></div>
+            <div class="card-photo"><img src="headshot.jpg" alt="Tanaka Dhombo"></div>
+            <div class="card-nameplate">
+              <h3>TANAKA DHOMBO</h3>
+              <div class="card-class">Venture Builder · LVL 28</div>
+            </div>
+            <div class="card-stats" id="card-stats">
+              <div class="cs-row"><span class="cs-icon">⚖️</span><span class="cs-label">Legal Precision</span><div class="cs-bar"><div class="cs-fill" data-val="82" style="background:#CC5C33;"></div></div><span class="cs-val">82</span></div>
+              <div class="cs-row"><span class="cs-icon">🏗️</span><span class="cs-label">Builder Instinct</span><div class="cs-bar"><div class="cs-fill" data-val="74" style="background:#C49745;"></div></div><span class="cs-val">74</span></div>
+              <div class="cs-row"><span class="cs-icon">📊</span><span class="cs-label">Deal Execution</span><div class="cs-bar"><div class="cs-fill" data-val="90" style="background:#22C3B0;"></div></div><span class="cs-val">90</span></div>
+              <div class="cs-row"><span class="cs-icon">🌍</span><span class="cs-label">Pan-African Ops</span><div class="cs-bar"><div class="cs-fill" data-val="85" style="background:#CC5C33;"></div></div><span class="cs-val">85</span></div>
+              <div class="cs-row"><span class="cs-icon">🎯</span><span class="cs-label">Strategic Vision</span><div class="cs-bar"><div class="cs-fill" data-val="83" style="background:#AB6B72;"></div></div><span class="cs-val">83</span></div>
+              <div class="cs-row"><span class="cs-icon">🎤</span><span class="cs-label">Stakeholder Comms</span><div class="cs-bar"><div class="cs-fill" data-val="88" style="background:#E8A31E;"></div></div><span class="cs-val">88</span></div>
+            </div>
+            <div class="card-badges">
+              <div class="card-badges-title">Achievements</div>
+              <div class="card-badges-grid">
+                <div class="cb-item"><span class="cb-icon">🏛️</span><span class="cb-label">HEC Paris MBA</span></div>
+                <div class="cb-item"><span class="cb-icon">⚖️</span><span class="cb-label">High Court Attorney</span></div>
+                <div class="cb-item"><span class="cb-icon">🌍</span><span class="cb-label">Legal 500 (2024)</span></div>
+                <div class="cb-item"><span class="cb-icon">🎓</span><span class="cb-label">Allan Gray Fellow</span></div>
+                <div class="cb-item"><span class="cb-icon">🍷</span><span class="cb-label">WSET L2</span></div>
+                <div class="cb-item"><span class="cb-icon">🎵</span><span class="cb-label">Choir Games Medalist</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tower-bio fade-target">
+            <h2 class="bio-name">Tanaka Dhombo</h2>
+            <p class="bio-subtitle">Venture Builder · Operator · Recovering Lawyer</p>
+            <div class="bio-text">
+              <p>I spent four years in Big Law doing cross-border M&A, private equity deals, and venture capital structuring across Africa. I've sat in the rooms where $270M+ in transactions were shaped — drafting the docs, stress-testing the structures, and making sure nothing fell apart at midnight before signing.</p>
+              <p>Now I build. I'm an MBA candidate at HEC Paris, focused on search funds, entrepreneurship through acquisition, and launching ventures that solve real problems on the continent. I'm drawn to the intersection of technology, capital, and African markets.</p>
+              <p class="italic">I believe the next generation of African enterprise will be built by people who understand both the boardroom and the build — and I intend to be one of them.</p>
+            </div>
+            <div class="quick-stats">
+              <div class="qs-item"><div class="qs-val">4+</div><div class="qs-label">Years Legal</div></div>
+              <div class="qs-item"><div class="qs-val">$270M+</div><div class="qs-label">Deal Value</div></div>
+              <div class="qs-item"><div class="qs-val">4</div><div class="qs-label">Ventures</div></div>
+              <div class="qs-item"><div class="qs-val">HEC</div><div class="qs-label">MBA '27</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: THE ARCHIVE -->
+    <div class="page" id="page-archive">
+      <div class="archive-inner">
+        <div class="section-header fade-target">
+          <span class="sh-icon">📜</span>
+          <h2 class="sh-title">The Archive</h2>
+          <div class="sh-sub"><span>Quest Log</span></div>
+        </div>
+        <div class="role-cards">
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge legal">Legal</span><span class="rc-period">2023 — 2025</span></div><h3>Associate</h3><p class="rc-org">Bowman Gilfillan</p><ul class="rc-list"><li>Led execution on a USD 52M cross-border tech acquisition</li><li>Supported USD 188M retail transaction deal team</li><li>Managed fibre infrastructure acquisition workstreams</li><li>Structured PE/VC fund vehicles and USD 30M+ SME funding deals</li></ul></div>
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge legal">Legal</span><span class="rc-period">2021 — 2023</span></div><h3>Candidate Attorney</h3><p class="rc-org">Bowman Gilfillan</p><ul class="rc-list"><li>Corporate M&amp;A, Private Equity, and Venture Capital practice</li><li>Multi-jurisdictional deal support across Southern Africa</li></ul></div>
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge leadership">Leadership</span><span class="rc-period">2025 — 2027</span></div><h3>MBA Candidate</h3><p class="rc-org">HEC Paris</p><ul class="rc-list"><li>Diversity Scholar</li><li>MBA Council President</li><li>Search Fund Club Advisor</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: THE ACADEMY -->
+    <div class="page" id="page-academy">
+      <div class="academy-inner">
+        <div class="section-header fade-target">
+          <span class="sh-icon">🎓</span>
+          <h2 class="sh-title">The Academy</h2>
+          <div class="sh-sub"><span>Skill Tree</span></div>
+        </div>
+        <div class="timeline">
+          <div class="tl-entry fade-target"><div class="tl-line"><div class="tl-diamond"></div><div class="tl-connector"></div></div><div class="tl-card"><div class="tl-unlocked">✦ Unlocked</div><h3>HEC Paris</h3><p class="tl-degree">MBA</p><p class="tl-period">2025 — 2027</p><div class="tl-tags"><span class="tl-tag">Diversity Scholar</span><span class="tl-tag">MBA Council President</span><span class="tl-tag">Search Fund Club Advisor</span></div></div></div>
+          <div class="tl-entry fade-target"><div class="tl-line"><div class="tl-diamond"></div><div class="tl-connector"></div></div><div class="tl-card"><div class="tl-unlocked">✦ Unlocked</div><h3>University of Cape Town</h3><p class="tl-degree">LLB</p><p class="tl-period">2017 — 2020</p><div class="tl-tags"><span class="tl-tag">Dean's Merit List</span></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: THE WORKSHOP -->
+    <div class="page" id="page-workshop">
+      <div class="workshop-inner">
+        <div class="section-header fade-target">
+          <span class="sh-icon">🛠️</span>
+          <h2 class="sh-title">The Workshop</h2>
+          <div class="sh-sub"><span>Blueprints &amp; Ventures</span></div>
+        </div>
+        <div class="project-grid">
+          <div class="project-card fade-target" data-accent="neon-teal"><div class="pc-top"><span class="pc-status live">Live</span><a href="https://con-tent.vercel.app" target="_blank" rel="noopener" class="pc-visit">↗ Visit</a></div><h3>Con.Tent</h3><p class="pc-desc">AI cross-media recommendation platform</p></div>
+          <div class="project-card fade-target" data-accent="ochre"><div class="pc-top"><span class="pc-status dev">In Development</span></div><h3>Creator Financial OS</h3><p class="pc-desc">Insurance broker platform for creators</p></div>
+          <div class="project-card fade-target" data-accent="dusty-rose"><div class="pc-top"><span class="pc-status dev">In Development</span></div><h3>Shoos</h3><p class="pc-desc">24hr anonymous stranger connection app</p></div>
+          <div class="project-card fade-target" data-accent="terracotta"><div class="pc-top"><span class="pc-status concept">Concept</span></div><h3>Agentic Sales AI</h3><p class="pc-desc">Early-stage SaaS growth tool</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: THE SIGNAL -->
+    <div class="page" id="page-signal">
+      <div class="signal-inner">
+        <div class="section-header fade-target">
+          <span class="sh-icon">📡</span>
+          <h2 class="sh-title">The Signal</h2>
+          <div class="sh-sub"><span>Transmission Open</span></div>
+        </div>
+        <div class="signal-tower fade-target">
+          <div class="pulse-ring"></div>
+          <div class="pulse-ring"></div>
+          <div class="pulse-ring"></div>
+          <div class="signal-hex">📡</div>
+        </div>
+        <h3 class="signal-cta fade-target">Ready to build something?</h3>
+        <div class="contact-links fade-target">
+          <a href="mailto:tanaka.dhombo@hec.edu" class="contact-link"><span class="cl-icon">✉️</span><span class="cl-label">Email</span></a>
+          <a href="https://linkedin.com/in/tanaka-dhombo" target="_blank" rel="noopener" class="contact-link"><span class="cl-icon">🔗</span><span class="cl-label">LinkedIn</span></a>
+          <a href="https://wa.me/" target="_blank" rel="noopener" class="contact-link"><span class="cl-icon">💬</span><span class="cl-label">WhatsApp</span></a>
+        </div>
+        <footer class="site-footer">© 2025 Tanaka Dhombo · All Rights Reserved</footer>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const ZONES = {
+      map:      { icon: '🗺️', name: 'WORLD MAP' },
+      tower:    { icon: '🏙️', name: 'THE TOWER' },
+      archive:  { icon: '📜', name: 'THE ARCHIVE' },
+      academy:  { icon: '🎓', name: 'THE ACADEMY' },
+      workshop: { icon: '🛠️', name: 'THE WORKSHOP' },
+      signal:   { icon: '📡', name: 'THE SIGNAL' }
+    };
+
+    let currentPage = 'map';
+    let transitioning = false;
+    const visited = new Set();
+    let siteEntered = false;
+
+    function enterSite() {
+      if (siteEntered) return;
+      siteEntered = true;
+      const ss = document.getElementById('start-screen');
+      const mc = document.getElementById('main-content');
+      ss.classList.add('exiting');
+      mc.classList.add('active');
+      setTimeout(() => {
+        ss.style.display = 'none';
+        animateZones();
+        initFadeObservers();
+      }, 1300);
+    }
+
+    function animateZones() {
+      document.querySelectorAll('.zone-btn').forEach(btn => {
+        const d = parseInt(btn.dataset.delay) || 0;
+        setTimeout(() => btn.classList.add('entered'), d * 150);
+      });
+    }
+
+    function navigateTo(zone) {
+      if (transitioning || zone === currentPage) return;
+      transitioning = true;
+
+      if (zone !== 'map') visited.add(zone);
+
+      if (zone === 'map') {
+        showMapDirect();
+        return;
+      }
+
+      const overlay = document.getElementById('transition-overlay');
+      const info = ZONES[zone];
+      document.getElementById('trans-icon').textContent = info.icon;
+      document.getElementById('trans-label').textContent = info.name;
+
+      overlay.classList.remove('contracting');
+      overlay.classList.add('expanding');
+
+      setTimeout(() => {
+        switchPage(zone);
+        updateHUD(zone);
+        window.scrollTo(0, 0);
+      }, 500);
+
+      setTimeout(() => {
+        overlay.classList.remove('expanding');
+        overlay.classList.add('contracting');
+      }, 900);
+
+      setTimeout(() => {
+        overlay.classList.remove('contracting');
+        transitioning = false;
+        initFadeObservers();
+        triggerStatBars(zone);
+      }, 1400);
+    }
+
+    function showMapDirect() {
+      const overlay = document.getElementById('transition-overlay');
+      const info = ZONES.map;
+      document.getElementById('trans-icon').textContent = info.icon;
+      document.getElementById('trans-label').textContent = info.name;
+
+      overlay.classList.remove('contracting');
+      overlay.classList.add('expanding');
+
+      setTimeout(() => {
+        switchPage('map');
+        updateHUD('map');
+        updateMapDiscovered();
+        window.scrollTo(0, 0);
+      }, 500);
+
+      setTimeout(() => {
+        overlay.classList.remove('expanding');
+        overlay.classList.add('contracting');
+      }, 900);
+
+      setTimeout(() => {
+        overlay.classList.remove('contracting');
+        transitioning = false;
+        animateZones();
+        initFadeObservers();
+      }, 1400);
+    }
+
+    function switchPage(zone) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page-' + zone);
+      if (target) target.classList.add('active');
+      currentPage = zone;
+
+      const hud = document.getElementById('game-hud');
+      if (zone === 'map') {
+        hud.classList.remove('show');
+      } else {
+        hud.classList.add('show');
+      }
+    }
+
+    function updateHUD(zone) {
+      const info = ZONES[zone];
+      document.getElementById('hud-loc-icon').textContent = info.icon;
+      document.getElementById('hud-loc-name').textContent = info.name;
+
+      document.querySelectorAll('.hud-slot').forEach(slot => {
+        const t = slot.dataset.target;
+        slot.classList.toggle('active', t === zone);
+        slot.classList.toggle('visited', visited.has(t) && t !== zone);
+      });
+    }
+
+    function updateMapDiscovered() {
+      document.querySelectorAll('.zone-btn[data-zone]').forEach(btn => {
+        btn.classList.toggle('discovered', visited.has(btn.dataset.zone));
+      });
+    }
+
+    function initFadeObservers() {
+      const activePage = document.querySelector('.page.active');
+      if (!activePage) return;
+
+      activePage.querySelectorAll('.fade-target').forEach(el => {
+        el.classList.remove('visible');
+        el.style.opacity = '';
+        el.style.transform = '';
+        el.style.transition = '';
+        fadeObserver.observe(el);
+      });
+    }
+
+    function triggerStatBars(zone) {
+      if (zone !== 'tower') return;
+      const cs = document.getElementById('card-stats');
+      if (!cs) return;
+      cs.querySelectorAll('.cs-fill').forEach(f => { f.style.width = '0%'; });
+      statObserver.observe(cs);
+    }
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          fadeObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.cs-fill').forEach((f, i) => {
+            setTimeout(() => { f.style.width = f.dataset.val + '%'; }, i * 100);
+          });
+          statObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    window.addEventListener('hashchange', () => {
+      if (!siteEntered) return;
+      const zone = location.hash.replace('#', '') || 'map';
+      if (ZONES[zone] && zone !== currentPage) navigateTo(zone);
+    });
+
+    window.addEventListener('popstate', () => {
+      if (!siteEntered) return;
+      const zone = location.hash.replace('#', '') || 'map';
+      if (ZONES[zone] && zone !== currentPage) navigateTo(zone);
+    });
+
+    const origNavigateTo = navigateTo;
+    navigateTo = function(zone) {
+      if (zone !== currentPage) {
+        history.pushState(null, '', '#' + zone);
+      }
+      origNavigateTo(zone);
+    };
+  </script>
+
+</body>
+</html>
