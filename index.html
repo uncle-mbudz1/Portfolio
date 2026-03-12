@@ -520,6 +520,105 @@
     .qs-item .qs-val { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--neon-teal); }
     .qs-item .qs-label { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted-text); margin-top: 4px; }
 
+    /* ── SKILLS BLOCK ── */
+    .skills-block {
+      margin-top: 32px;
+      border: 1px solid var(--border);
+      background: rgba(26,20,16,0.5);
+      padding: 24px;
+    }
+
+    .skills-header {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Bars */
+    .skills-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .skill-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: var(--muted-text);
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .skill-bar-track {
+      flex: 1;
+      height: 6px;
+      background: var(--muted-bg);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 2px;
+      transition: width 0.9s ease-out;
+    }
+
+    /* Tags */
+    .skills-tags-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .skills-tag-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .skills-tag-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--neon-teal);
+      width: 80px;
+      flex-shrink: 0;
+      padding-top: 4px;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      padding: 4px 12px;
+      border: 1px solid rgba(34,195,176,0.2);
+      color: var(--sand);
+      background: rgba(34,195,176,0.04);
+    }
+
     /* ============================================================
        THE ARCHIVE (Experience)
        ============================================================ */
@@ -765,6 +864,24 @@
               <div class="qs-item"><div class="qs-val">$300M+</div><div class="qs-label">Deal Value</div></div>
               <div class="qs-item"><div class="qs-val">3</div><div class="qs-label">Live Builds</div></div>
               <div class="qs-item"><div class="qs-val">HEC</div><div class="qs-label">MBA '27</div></div>
+            </div>
+            <div class="skills-block fade-target">
+              <div class="skills-header">
+                <span>&#x2736;</span> Abilities &amp; Equipment
+              </div>
+              <div class="skills-bars">
+                <div class="skill-row"><span class="skill-label">M&amp;A / Deal Execution</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="90" style="background: var(--neon-teal);"></div></div></div>
+                <div class="skill-row"><span class="skill-label">Venture &amp; Fund Structuring</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="85" style="background: var(--terracotta);"></div></div></div>
+                <div class="skill-row"><span class="skill-label">Stakeholder Management</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="88" style="background: var(--ochre);"></div></div></div>
+                <div class="skill-row"><span class="skill-label">Product &amp; Venture Building</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="78" style="background: var(--dusty-rose);"></div></div></div>
+                <div class="skill-row"><span class="skill-label">Strategic Structuring</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="83" style="background: var(--sage);"></div></div></div>
+                <div class="skill-row"><span class="skill-label">Cross-functional Leadership</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="86" style="background: var(--neon-teal);"></div></div></div>
+              </div>
+              <div class="skills-tags-section">
+                <div class="skills-tag-group"><span class="skills-tag-label">Tech Stack</span><div class="skills-tags"><span class="skill-tag">Claude / Cursor</span><span class="skill-tag">Supabase</span><span class="skill-tag">Next.js</span><span class="skill-tag">TypeScript</span><span class="skill-tag">GSuite</span></div></div>
+                <div class="skills-tag-group"><span class="skills-tag-label">Languages</span><div class="skills-tags"><span class="skill-tag">English (Native)</span><span class="skill-tag">Shona (Native)</span><span class="skill-tag">French (Conversational)</span></div></div>
+                <div class="skills-tag-group"><span class="skills-tag-label">Interests</span><div class="skills-tags"><span class="skill-tag">Wine &amp; Sommellerie</span><span class="skill-tag">Music Production</span><span class="skill-tag">African Ecosystems</span><span class="skill-tag">Search Funds</span><span class="skill-tag">R&amp;B Songwriting</span></div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1012,10 +1129,18 @@
 
     function triggerStatBars(zone) {
       if (zone !== 'tower') return;
+
       const cs = document.getElementById('card-stats');
-      if (!cs) return;
-      cs.querySelectorAll('.cs-fill').forEach(f => { f.style.width = '0%'; });
-      statObserver.observe(cs);
+      if (cs) {
+        cs.querySelectorAll('.cs-fill').forEach(f => { f.style.width = '0%'; });
+        statObserver.observe(cs);
+      }
+
+      const sb = document.querySelector('.skills-bars');
+      if (sb) {
+        sb.querySelectorAll('.skill-bar-fill').forEach(f => { f.style.width = '0%'; });
+        skillBarObserver.observe(sb);
+      }
     }
 
     const fadeObserver = new IntersectionObserver((entries) => {
@@ -1034,6 +1159,17 @@
             setTimeout(() => { f.style.width = f.dataset.val + '%'; }, i * 100);
           });
           statObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const skillBarObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-bar-fill').forEach((f, i) => {
+            setTimeout(() => { f.style.width = f.dataset.val + '%'; }, i * 120);
+          });
+          skillBarObserver.unobserve(e.target);
         }
       });
     }, { threshold: 0.3 });
