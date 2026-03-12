@@ -540,43 +540,6 @@
       gap: 8px;
     }
 
-    /* Bars */
-    .skills-bars {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-
-    .skill-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .skill-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      color: var(--muted-text);
-      width: 180px;
-      flex-shrink: 0;
-    }
-
-    .skill-bar-track {
-      flex: 1;
-      height: 6px;
-      background: var(--muted-bg);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 2px;
-      transition: width 0.9s ease-out;
-    }
-
     /* Tags */
     .skills-tags-section {
       display: flex;
@@ -869,14 +832,6 @@
               <div class="skills-header">
                 <span>&#x2736;</span> Abilities &amp; Equipment
               </div>
-              <div class="skills-bars">
-                <div class="skill-row"><span class="skill-label">M&amp;A / Deal Execution</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="90" style="background: var(--neon-teal);"></div></div></div>
-                <div class="skill-row"><span class="skill-label">Venture &amp; Fund Structuring</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="85" style="background: var(--terracotta);"></div></div></div>
-                <div class="skill-row"><span class="skill-label">Stakeholder Management</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="88" style="background: var(--ochre);"></div></div></div>
-                <div class="skill-row"><span class="skill-label">Product &amp; Venture Building</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="78" style="background: var(--dusty-rose);"></div></div></div>
-                <div class="skill-row"><span class="skill-label">Strategic Structuring</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="83" style="background: var(--sage);"></div></div></div>
-                <div class="skill-row"><span class="skill-label">Cross-functional Leadership</span><div class="skill-bar-track"><div class="skill-bar-fill" data-val="86" style="background: var(--neon-teal);"></div></div></div>
-              </div>
               <div class="skills-tags-section">
                 <div class="skills-tag-group"><span class="skills-tag-label">Tech Stack</span><div class="skills-tags"><span class="skill-tag">Claude / Cursor</span><span class="skill-tag">Supabase</span><span class="skill-tag">Next.js</span><span class="skill-tag">TypeScript</span><span class="skill-tag">GSuite</span></div></div>
                 <div class="skills-tag-group"><span class="skills-tag-label">Languages</span><div class="skills-tags"><span class="skill-tag">English (Native)</span><span class="skill-tag">Shona (Native)</span><span class="skill-tag">French (Conversational)</span></div></div>
@@ -1136,11 +1091,6 @@
         statObserver.observe(cs);
       }
 
-      const sb = document.querySelector('.skills-bars');
-      if (sb) {
-        sb.querySelectorAll('.skill-bar-fill').forEach(f => { f.style.width = '0%'; });
-        skillBarObserver.observe(sb);
-      }
     }
 
     const fadeObserver = new IntersectionObserver((entries) => {
@@ -1163,16 +1113,6 @@
       });
     }, { threshold: 0.3 });
 
-    const skillBarObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.skill-bar-fill').forEach((f, i) => {
-            setTimeout(() => { f.style.width = f.dataset.val + '%'; }, i * 120);
-          });
-          skillBarObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3 });
 
     window.addEventListener('hashchange', () => {
       if (!siteEntered) return;
