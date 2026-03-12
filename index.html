@@ -651,6 +651,7 @@
       <div class="hud-slots">
         <button class="hud-slot" data-target="tower" onclick="navigateTo('tower')" title="The Tower">🏙️</button>
         <button class="hud-slot" data-target="archive" onclick="navigateTo('archive')" title="The Archive">📜</button>
+        <button class="hud-slot" data-target="warroom" onclick="navigateTo('warroom')" title="The Warroom">⚔️</button>
         <button class="hud-slot" data-target="academy" onclick="navigateTo('academy')" title="The Academy">🎓</button>
         <button class="hud-slot" data-target="workshop" onclick="navigateTo('workshop')" title="The Workshop">🛠️</button>
         <button class="hud-slot" data-target="signal" onclick="navigateTo('signal')" title="The Signal">📡</button>
@@ -673,8 +674,10 @@
         <svg class="map-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
           <line x1="50" y1="18" x2="20" y2="42" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
           <line x1="50" y1="18" x2="78" y2="38" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
-          <line x1="20" y1="42" x2="35" y2="65" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
-          <line x1="78" y1="38" x2="68" y2="72" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+          <line x1="20" y1="42" x2="50" y2="48" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+          <line x1="78" y1="38" x2="50" y2="48" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+          <line x1="50" y1="48" x2="35" y2="65" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
+          <line x1="50" y1="48" x2="68" y2="72" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
           <line x1="35" y1="65" x2="68" y2="72" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
         </svg>
         <button class="zone-btn" style="left:50%;top:18%;" data-delay="0" data-zone="tower" onclick="navigateTo('tower')">
@@ -692,12 +695,17 @@
           <span class="zone-label">THE ACADEMY</span>
           <span class="zone-desc">Education</span>
         </button>
-        <button class="zone-btn" style="left:35%;top:65%;" data-delay="3" data-zone="workshop" onclick="navigateTo('workshop')">
+        <button class="zone-btn" style="left:50%;top:48%;" data-delay="3" data-zone="warroom" onclick="navigateTo('warroom')">
+          <div class="zone-icon">⚔️</div>
+          <span class="zone-label">THE WARROOM</span>
+          <span class="zone-desc">Leadership &amp; Service</span>
+        </button>
+        <button class="zone-btn" style="left:35%;top:65%;" data-delay="4" data-zone="workshop" onclick="navigateTo('workshop')">
           <div class="zone-icon">🛠️</div>
           <span class="zone-label">THE WORKSHOP</span>
           <span class="zone-desc">Projects &amp; Ventures</span>
         </button>
-        <button class="zone-btn" style="left:68%;top:72%;" data-delay="4" data-zone="signal" onclick="navigateTo('signal')">
+        <button class="zone-btn" style="left:68%;top:72%;" data-delay="5" data-zone="signal" onclick="navigateTo('signal')">
           <div class="zone-icon">📡</div>
           <span class="zone-label">THE SIGNAL</span>
           <span class="zone-desc">Contact</span>
@@ -748,14 +756,14 @@
             <h2 class="bio-name">Tanaka Dhombo</h2>
             <p class="bio-subtitle">Venture Builder · Operator · Recovering Lawyer</p>
             <div class="bio-text">
-              <p>I spent four years in Big Law doing cross-border M&A, private equity deals, and venture capital structuring across Africa. I've sat in the rooms where $270M+ in transactions were shaped — drafting the docs, stress-testing the structures, and making sure nothing fell apart at midnight before signing.</p>
-              <p>Now I build. I'm an MBA candidate at HEC Paris, focused on search funds, entrepreneurship through acquisition, and launching ventures that solve real problems on the continent. I'm drawn to the intersection of technology, capital, and African markets.</p>
-              <p class="italic">I believe the next generation of African enterprise will be built by people who understand both the boardroom and the build — and I intend to be one of them.</p>
+              <p>I spent four years at one of Africa's top law firms executing cross-border deals across M&amp;A, private equity, and venture capital. In doing so, I honed my ability to stress-test structures, align stakeholders, and making sure nothing falls apart the night before signing, save for my sleep schedule.</p>
+              <p>Now I build. I'm an MBA candidate at HEC Paris, MBA Council President, and experimenting with ventures at the intersection of AI, creator finance, and social connection. I'm drawn to early-stage ecosystems, search funds, and the operators who make things move on the continent.</p>
+              <p class="italic">I believe Africa's next chapter gets written by people who understand both the boardroom and the build, and I intend to be one of them.</p>
             </div>
             <div class="quick-stats">
               <div class="qs-item"><div class="qs-val">4+</div><div class="qs-label">Years Legal</div></div>
-              <div class="qs-item"><div class="qs-val">$270M+</div><div class="qs-label">Deal Value</div></div>
-              <div class="qs-item"><div class="qs-val">4</div><div class="qs-label">Ventures</div></div>
+              <div class="qs-item"><div class="qs-val">$300M+</div><div class="qs-label">Deal Value</div></div>
+              <div class="qs-item"><div class="qs-val">3</div><div class="qs-label">Live Builds</div></div>
               <div class="qs-item"><div class="qs-val">HEC</div><div class="qs-label">MBA '27</div></div>
             </div>
           </div>
@@ -772,9 +780,26 @@
           <div class="sh-sub"><span>Quest Log</span></div>
         </div>
         <div class="role-cards">
-          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge legal">Legal</span><span class="rc-period">2023 — 2025</span></div><h3>Associate</h3><p class="rc-org">Bowman Gilfillan</p><ul class="rc-list"><li>Led execution on a USD 52M cross-border tech acquisition</li><li>Supported USD 188M retail transaction deal team</li><li>Managed fibre infrastructure acquisition workstreams</li><li>Structured PE/VC fund vehicles and USD 30M+ SME funding deals</li></ul></div>
-          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge legal">Legal</span><span class="rc-period">2021 — 2023</span></div><h3>Candidate Attorney</h3><p class="rc-org">Bowman Gilfillan</p><ul class="rc-list"><li>Corporate M&amp;A, Private Equity, and Venture Capital practice</li><li>Multi-jurisdictional deal support across Southern Africa</li></ul></div>
-          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge leadership">Leadership</span><span class="rc-period">2025 — 2027</span></div><h3>MBA Candidate</h3><p class="rc-org">HEC Paris</p><ul class="rc-list"><li>Diversity Scholar</li><li>MBA Council President</li><li>Search Fund Club Advisor</li></ul></div>
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge legal">Legal</span><span class="rc-period">2023 — 2025</span></div><h3>Legal Professional — Associate</h3><p class="rc-org">Bowman Gilfillan · Pan-African corporate law firm</p><ul class="rc-list"><li>Led cross-functional project teams of 50+ professionals to execute a major fibre infrastructure acquisition (Octotel Networks and RSAWeb), driving project management and stakeholder alignment.</li><li>Conducted end-to-end deal execution for a USD 52M technology acquisition (Inseego Corp's telematics division), identifying key risk factors and structuring solutions.</li><li>Managed the South African leg of Komatsu Limited's acquisition of the GHH Group across 7 subsidiaries.</li><li>Structured PE/VC fund vehicles and supported deployment of USD 30M+ in SME funding across South Africa's startup ecosystem.</li></ul></div>
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge legal">Legal</span><span class="rc-period">2021 — 2023</span></div><h3>Legal Professional — Rotational Program</h3><p class="rc-org">Bowman Gilfillan · Banking &amp; Finance · Litigation · M&amp;A · Private Equity</p><ul class="rc-list"><li>Two-year structured rotational program across four practice areas, building cross-disciplinary commercial judgment in high-stakes transaction environments.</li><li>Supported execution of Mr. Price Group's USD 188M acquisition of Studio 88, coordinating closing workflows, due diligence, and stakeholder communications.</li><li>Multi-jurisdictional deal support across Southern African subsidiaries and cross-border corporate structures.</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: THE WARROOM -->
+    <div class="page" id="page-warroom">
+      <div class="archive-inner">
+        <div class="section-header fade-target">
+          <span class="sh-icon">⚔️</span>
+          <h2 class="sh-title">The Warroom</h2>
+          <div class="sh-sub"><span>Leadership &amp; Service</span></div>
+        </div>
+        <div class="role-cards">
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge leadership">Leadership</span><span class="rc-period">2025 — Present</span></div><h3>MBA Council President</h3><p class="rc-org">HEC Paris</p><ul class="rc-list"><li>Elected by my peers by an 82% majority.</li><li>Lead cross-functional initiatives for 300+ MBA students across cohorts.</li><li>Manage relationships with administration, student representatives, and external partners.</li><li>Oversee coordination across student clubs, event programming, and sponsorships.</li></ul></div>
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge leadership">Leadership</span><span class="rc-period">2025 — Present</span></div><h3>Search Fund Club — Advisor</h3><p class="rc-org">HEC Paris</p><ul class="rc-list"><li>Liaise with investors and alumni to support student programming and events focused on search fund investing and entrepreneurship through acquisition.</li><li>Connect students with practitioners across the search fund ecosystem to build deal flow awareness and investor relationships.</li></ul></div>
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge leadership">Leadership</span><span class="rc-period">2025 — Present</span></div><h3>Wine, Spirits &amp; Beer Advisor — Sommelier</h3><p class="rc-org">HEC Paris</p><ul class="rc-list"><li>Serving the HEC Paris MBA community as campus sommelier — curating tastings, pairings, and educational events.</li></ul></div>
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge leadership">Leadership</span><span class="rc-period">2021 — Present</span></div><h3>Fellow &amp; Mentor</h3><p class="rc-org">Allan Gray Orbis Foundation</p><ul class="rc-list"><li>Selected fellow of one of Southern Africa's leading entrepreneurship and leadership foundations, focused on developing high-potential young Africans.</li><li>Active mentor supporting the next generation of African entrepreneurs and changemakers.</li></ul></div>
+          <div class="role-card fade-target"><div class="rc-corner"></div><div class="rc-top"><span class="rc-badge leadership">Leadership</span><span class="rc-period">2017 — 2020</span></div><h3>Undergraduate Leadership Experience</h3><p class="rc-org">University of Cape Town</p><ul class="rc-list"><li>Served as Chairperson (2020) and Founding Secretary General (2019) of the UCT student chapter, building the organization from the ground up.</li><li>Executive member of the Student Life division of the Law Student Council (2018); Class Representative (2017).</li></ul></div>
         </div>
       </div>
     </div>
@@ -788,8 +813,8 @@
           <div class="sh-sub"><span>Skill Tree</span></div>
         </div>
         <div class="timeline">
-          <div class="tl-entry fade-target"><div class="tl-line"><div class="tl-diamond"></div><div class="tl-connector"></div></div><div class="tl-card"><div class="tl-unlocked">✦ Unlocked</div><h3>HEC Paris</h3><p class="tl-degree">MBA</p><p class="tl-period">2025 — 2027</p><div class="tl-tags"><span class="tl-tag">Diversity Scholar</span><span class="tl-tag">MBA Council President</span><span class="tl-tag">Search Fund Club Advisor</span></div></div></div>
-          <div class="tl-entry fade-target"><div class="tl-line"><div class="tl-diamond"></div><div class="tl-connector"></div></div><div class="tl-card"><div class="tl-unlocked">✦ Unlocked</div><h3>University of Cape Town</h3><p class="tl-degree">LLB</p><p class="tl-period">2017 — 2020</p><div class="tl-tags"><span class="tl-tag">Dean's Merit List</span></div></div></div>
+          <div class="tl-entry fade-target"><div class="tl-line"><div class="tl-diamond"></div><div class="tl-connector"></div></div><div class="tl-card"><div class="tl-unlocked">✦ Unlocked</div><h3>HEC Paris</h3><p class="tl-degree">MBA</p><p class="tl-period">2025 — 2027</p><div class="tl-tags"><span class="tl-tag">Diversity Scholar</span><span class="tl-tag">MBA Council President</span><span class="tl-tag">Search Fund Club Advisor</span><span class="tl-tag">Wine, Spirits &amp; Beer Club Advisor (Sommelier)</span></div></div></div>
+          <div class="tl-entry fade-target"><div class="tl-line"><div class="tl-diamond"></div><div class="tl-connector"></div></div><div class="tl-card"><div class="tl-unlocked">✦ Unlocked</div><h3>University of Cape Town</h3><p class="tl-degree">LLB (Bachelor of Laws)</p><p class="tl-period">2017 — 2020</p><div class="tl-tags"><span class="tl-tag">Allan Gray Orbis Foundation Fellow</span><span class="tl-tag">Dean's Merit List</span><span class="tl-tag">BLA Chairperson</span><span class="tl-tag">BLA Founding Secretary General</span><span class="tl-tag">Law Student Council</span></div></div></div>
         </div>
       </div>
     </div>
@@ -803,10 +828,9 @@
           <div class="sh-sub"><span>Blueprints &amp; Ventures</span></div>
         </div>
         <div class="project-grid">
-          <div class="project-card fade-target" data-accent="neon-teal"><div class="pc-top"><span class="pc-status live">Live</span><a href="https://con-tent.vercel.app" target="_blank" rel="noopener" class="pc-visit">↗ Visit</a></div><h3>Con.Tent</h3><p class="pc-desc">AI cross-media recommendation platform</p></div>
-          <div class="project-card fade-target" data-accent="ochre"><div class="pc-top"><span class="pc-status dev">In Development</span></div><h3>Creator Financial OS</h3><p class="pc-desc">Insurance broker platform for creators</p></div>
-          <div class="project-card fade-target" data-accent="dusty-rose"><div class="pc-top"><span class="pc-status dev">In Development</span></div><h3>Shoos</h3><p class="pc-desc">24hr anonymous stranger connection app</p></div>
-          <div class="project-card fade-target" data-accent="terracotta"><div class="pc-top"><span class="pc-status concept">Concept</span></div><h3>Agentic Sales AI</h3><p class="pc-desc">Early-stage SaaS growth tool</p></div>
+          <div class="project-card fade-target" data-accent="neon-teal"><div class="pc-top"><span class="pc-status live">Live</span><a href="https://con-tent.vercel.app" target="_blank" rel="noopener" class="pc-visit">↗ Visit</a></div><h3>Con.Tent</h3><p class="pc-desc">AI-powered cross-media discovery. Connecting people to content across formats.</p></div>
+          <div class="project-card fade-target" data-accent="ochre"><div class="pc-top"><span class="pc-status dev">In Development</span></div><h3>Creator Financial OS</h3><p class="pc-desc">Financial infrastructure for creators — insurance, invoicing, and income smoothing in one place.</p></div>
+          <div class="project-card fade-target" data-accent="dusty-rose"><div class="pc-top"><span class="pc-status dev">In Development</span></div><h3>Shoos</h3><p class="pc-desc">You get 24 hours. One stranger. No profiles. Just connection.</p></div>
         </div>
       </div>
     </div>
@@ -829,9 +853,9 @@
         <div class="contact-links fade-target">
           <a href="mailto:tanaka.dhombo@hec.edu" class="contact-link"><span class="cl-icon">✉️</span><span class="cl-label">Email</span></a>
           <a href="https://linkedin.com/in/tanaka-dhombo" target="_blank" rel="noopener" class="contact-link"><span class="cl-icon">🔗</span><span class="cl-label">LinkedIn</span></a>
-          <a href="https://wa.me/" target="_blank" rel="noopener" class="contact-link"><span class="cl-icon">💬</span><span class="cl-label">WhatsApp</span></a>
+          <a href="https://wa.me/27767927487" target="_blank" rel="noopener" class="contact-link"><span class="cl-icon">💬</span><span class="cl-label">WhatsApp</span></a>
         </div>
-        <footer class="site-footer">© 2025 Tanaka Dhombo · All Rights Reserved</footer>
+        <footer class="site-footer">© 2026 Tanaka Dhombo · All Rights Reserved</footer>
       </div>
     </div>
 
@@ -842,6 +866,7 @@
       map:      { icon: '🗺️', name: 'WORLD MAP' },
       tower:    { icon: '🏙️', name: 'THE TOWER' },
       archive:  { icon: '📜', name: 'THE ARCHIVE' },
+      warroom:  { icon: '⚔️', name: 'THE WARROOM' },
       academy:  { icon: '🎓', name: 'THE ACADEMY' },
       workshop: { icon: '🛠️', name: 'THE WORKSHOP' },
       signal:   { icon: '📡', name: 'THE SIGNAL' }
