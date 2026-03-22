@@ -285,6 +285,7 @@
       max-width: 720px;
       margin: 0 auto;
       padding: 10px 16px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom, 0px));
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -377,6 +378,12 @@
       .hud-location { display: none; }
       .hud-slot { width: 36px; height: 36px; font-size: 14px; }
     }
+    @media (max-width: 400px) {
+      .hud-map-btn .hm-label { display: none; }
+      .hud-map-btn { padding: 6px 10px; }
+      .hud-slot { width: 32px; height: 32px; font-size: 13px; }
+      .hud-inner { padding: 8px 10px; gap: 8px; }
+    }
 
     /* ============================================================
        WORLD MAP
@@ -387,6 +394,7 @@
       align-items: center;
       justify-content: center;
       padding: 48px 16px;
+      padding-bottom: max(48px, env(safe-area-inset-bottom, 0px));
     }
     .map-title {
       font-family: 'Cinzel', serif;
@@ -416,6 +424,13 @@
         linear-gradient(90deg, rgba(232,222,206,0.05) 1px, transparent 1px);
     }
     @media (min-width: 768px) { .map-container { aspect-ratio: 16/9; } }
+
+    .map-zones {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .map-zones .zone-btn { pointer-events: auto; }
     .map-svg {
       position: absolute; inset: 0; width: 100%; height: 100%;
       pointer-events: none;
@@ -458,13 +473,109 @@
       color: rgba(160,142,120,0.5); white-space: nowrap;
     }
     @media (min-width: 768px) { .zone-desc { font-size: 10px; } }
+    .zone-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      min-width: 0;
+    }
     .zone-btn:hover .zone-label { color: var(--neon-teal); }
     .zone-btn.discovered .zone-label { color: rgba(34,195,176,0.6); }
+
+    /* Mobile: grid list — absolute map nodes overlap on narrow viewports */
+    @media (max-width: 680px) {
+      #page-map.active {
+        padding: 24px 12px 32px;
+        padding-bottom: max(32px, env(safe-area-inset-bottom, 0px));
+        justify-content: flex-start;
+      }
+      .map-title { margin-bottom: 4px; }
+      .map-subtitle { margin-bottom: 16px; font-size: 11px; }
+      .map-container {
+        aspect-ratio: auto;
+        max-width: 420px;
+        background-image: none;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        padding: 12px;
+      }
+      .map-svg { display: none; }
+      .map-zones {
+        position: static;
+        pointer-events: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+      }
+      .zone-btn {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        width: 100%;
+        min-height: 52px;
+        padding: 8px 10px;
+        text-align: left;
+        background: rgba(26,20,16,0.6);
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        opacity: 1;
+      }
+      .zone-btn.entered {
+        opacity: 1;
+        transform: none !important;
+      }
+      .zone-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.35rem;
+        flex-shrink: 0;
+      }
+      .zone-icon::after { display: none; }
+      .zone-btn:hover .zone-icon { border-color: rgba(34,195,176,0.5); }
+      .zone-btn .zone-label {
+        white-space: normal;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        line-height: 1.25;
+        text-align: left;
+      }
+      .zone-desc {
+        white-space: normal;
+        font-size: 9px;
+        line-height: 1.2;
+        display: block;
+        max-width: none;
+      }
+      .zone-copy {
+        align-items: flex-start;
+        flex: 1;
+      }
+    }
 
     /* ============================================================
        THE TOWER (About)
        ============================================================ */
     #page-tower { padding: 96px 16px 120px; }
+    @media (max-width: 680px) {
+      #page-tower,
+      #page-archive,
+      #page-warroom,
+      #page-academy,
+      #page-workshop { padding: 72px 12px 100px; }
+      #page-signal.active { padding: 72px 12px 100px; }
+      .section-header { margin-bottom: 32px; }
+      .section-header .sh-sub::before,
+      .section-header .sh-sub::after { width: 28px; }
+      .skills-tag-group { flex-direction: column; gap: 8px; }
+      .skills-tag-label { width: 100%; padding-top: 0; }
+    }
     .tower-inner { max-width: 1152px; margin: 0 auto; }
     .tower-layout { display: flex; flex-direction: column; align-items: center; gap: 48px; }
     @media (min-width: 1024px) { .tower-layout { flex-direction: row; align-items: flex-start; gap: 64px; } }
@@ -742,36 +853,50 @@
           <line x1="50" y1="48" x2="68" y2="72" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
           <line x1="35" y1="65" x2="68" y2="72" stroke="#362F28" stroke-width="0.15" stroke-dasharray="1,1"/>
         </svg>
-        <button class="zone-btn" style="left:50%;top:18%;" data-delay="0" data-zone="tower" onclick="navigateTo('tower')">
-          <div class="zone-icon">🏙️</div>
-          <span class="zone-label">THE TOWER</span>
-          <span class="zone-desc">Who is Tanaka</span>
-        </button>
-        <button class="zone-btn" style="left:20%;top:42%;" data-delay="1" data-zone="archive" onclick="navigateTo('archive')">
-          <div class="zone-icon">📜</div>
-          <span class="zone-label">THE ARCHIVE</span>
-          <span class="zone-desc">Career History</span>
-        </button>
-        <button class="zone-btn" style="left:78%;top:38%;" data-delay="2" data-zone="academy" onclick="navigateTo('academy')">
-          <div class="zone-icon">🎓</div>
-          <span class="zone-label">THE ACADEMY</span>
-          <span class="zone-desc">Education</span>
-        </button>
-        <button class="zone-btn" style="left:50%;top:48%;" data-delay="3" data-zone="warroom" onclick="navigateTo('warroom')">
-          <div class="zone-icon">⚔️</div>
-          <span class="zone-label">THE WARROOM</span>
-          <span class="zone-desc">Leadership &amp; Service</span>
-        </button>
-        <button class="zone-btn" style="left:35%;top:65%;" data-delay="4" data-zone="workshop" onclick="navigateTo('workshop')">
-          <div class="zone-icon">🛠️</div>
-          <span class="zone-label">THE WORKSHOP</span>
-          <span class="zone-desc">Projects &amp; Ventures</span>
-        </button>
-        <button class="zone-btn" style="left:68%;top:72%;" data-delay="5" data-zone="signal" onclick="navigateTo('signal')">
-          <div class="zone-icon">📡</div>
-          <span class="zone-label">THE SIGNAL</span>
-          <span class="zone-desc">Contact</span>
-        </button>
+        <div class="map-zones">
+          <button class="zone-btn" style="left:50%;top:18%;" data-delay="0" data-zone="tower" onclick="navigateTo('tower')">
+            <div class="zone-icon">🏙️</div>
+            <span class="zone-copy">
+              <span class="zone-label">THE TOWER</span>
+              <span class="zone-desc">Who is Tanaka</span>
+            </span>
+          </button>
+          <button class="zone-btn" style="left:20%;top:42%;" data-delay="1" data-zone="archive" onclick="navigateTo('archive')">
+            <div class="zone-icon">📜</div>
+            <span class="zone-copy">
+              <span class="zone-label">THE ARCHIVE</span>
+              <span class="zone-desc">Career History</span>
+            </span>
+          </button>
+          <button class="zone-btn" style="left:78%;top:38%;" data-delay="2" data-zone="academy" onclick="navigateTo('academy')">
+            <div class="zone-icon">🎓</div>
+            <span class="zone-copy">
+              <span class="zone-label">THE ACADEMY</span>
+              <span class="zone-desc">Education</span>
+            </span>
+          </button>
+          <button class="zone-btn" style="left:50%;top:48%;" data-delay="3" data-zone="warroom" onclick="navigateTo('warroom')">
+            <div class="zone-icon">⚔️</div>
+            <span class="zone-copy">
+              <span class="zone-label">THE WARROOM</span>
+              <span class="zone-desc">Leadership &amp; Service</span>
+            </span>
+          </button>
+          <button class="zone-btn" style="left:35%;top:65%;" data-delay="4" data-zone="workshop" onclick="navigateTo('workshop')">
+            <div class="zone-icon">🛠️</div>
+            <span class="zone-copy">
+              <span class="zone-label">THE WORKSHOP</span>
+              <span class="zone-desc">Projects &amp; Ventures</span>
+            </span>
+          </button>
+          <button class="zone-btn" style="left:68%;top:72%;" data-delay="5" data-zone="signal" onclick="navigateTo('signal')">
+            <div class="zone-icon">📡</div>
+            <span class="zone-copy">
+              <span class="zone-label">THE SIGNAL</span>
+              <span class="zone-desc">Contact</span>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
 
